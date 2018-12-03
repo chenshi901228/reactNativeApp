@@ -9,8 +9,6 @@ import { scaleSize, setSpText2 } from '../utils/ScreenUtil'
 
 import Mine from './mine'
 import Home from './home'
-import Classify from '../views/classify'
-import Find from '../views/find'
 import ShoppingCart from '../views/shoppingCart'
 
 class Index extends Component {
@@ -18,42 +16,21 @@ class Index extends Component {
         selectedTab: "首页"
     }
     render() {
-        console.log(this.props)
         return (
             <View style={styles.container}>
                 <TabNavigator
                     hidesTabTouch
-                    tabBarStyle={{ height: scaleSize(56), paddingVertical: scaleSize(2) }}
+                    tabBarStyle={{ paddingBottom: scaleSize(2), backgroundColor: "#FFF", borderTopWidth: 0 }}
                 >
                     <TabNavigator.Item
                         selected={this.state.selectedTab === '首页'}
                         title="首页"
                         titleStyle={styles.tabText}
                         selectedTitleStyle={styles.selectedTabText}
-                        renderIcon={() => <Image style={styles.icon} source={require("../static/images/icon/home_1.png")} />}
-                        renderSelectedIcon={() => <Image style={styles.icon} source={require("../static/images/icon/home.png")} />}
+                        renderIcon={() => <Image style={styles.icon1} source={require("../static/images/icon/home_1.png")} />}
+                        renderSelectedIcon={() => <Image style={styles.icon1} source={require("../static/images/icon/home.png")} />}
                         onPress={() => this.setState({ selectedTab: '首页' })}>
-                        <Home />
-                    </TabNavigator.Item>
-                    <TabNavigator.Item
-                        selected={this.state.selectedTab === '分类'}
-                        title="分类"
-                        titleStyle={styles.tabText}
-                        selectedTitleStyle={styles.selectedTabText}
-                        renderIcon={() => <Image style={styles.icon} source={require("../static/images/icon/classify_1.png")} />}
-                        renderSelectedIcon={() => <Image style={styles.icon} source={require("../static/images/icon/classify.png")} />}
-                        onPress={() => this.setState({ selectedTab: '分类' })}>
-                        <Classify />
-                    </TabNavigator.Item>
-                    <TabNavigator.Item
-                        selected={this.state.selectedTab === '发现'}
-                        title="发现"
-                        titleStyle={styles.tabText}
-                        selectedTitleStyle={styles.selectedTabText}
-                        renderIcon={() => <Image style={styles.icon} source={require("../static/images/icon/find_1.png")} />}
-                        renderSelectedIcon={() => <Image style={styles.icon} source={require("../static/images/icon/find.png")} />}
-                        onPress={() => this.setState({ selectedTab: '发现' })}>
-                        <Find />
+                        <Home navigation={this.props.navigation} />
                     </TabNavigator.Item>
                     <TabNavigator.Item
                         selected={this.state.selectedTab === '购物车'}
@@ -85,16 +62,20 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     tabText: {
-        color: "#666666",
-        fontSize: 13
+        color: "#9B9B9B",
+        fontSize: setSpText2(12)
     },
     selectedTabText: {
-        color: "red",
-        fontSize: 13
+        color: "#4A4A4A",
+        fontSize: setSpText2(12)
+    },
+    icon1: {
+        width: scaleSize(22),
+        height: scaleSize(21),
     },
     icon: {
-        width: 22,
-        height: 22,
+        width: scaleSize(21),
+        height: scaleSize(21),
     }
 });
 export default connect(({ login_init }) => {

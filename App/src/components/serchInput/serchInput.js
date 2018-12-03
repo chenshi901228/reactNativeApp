@@ -20,16 +20,14 @@ export default class Serch extends Component {
     render() {
         return (
             <View style={styles.borderbottom}>
-                <Image style={{ width: scaleSize(17), height: scaleSize(17) }} source={require('../../static/images/icon/sys.png')} />
-                <Image style={{ width: scaleSize(16), height: scaleSize(16), position: 'absolute', left: scaleSize(66), zIndex: 10 }} source={require('../../static/images/icon/serch.png')} />
-                <TextInput
-                    style={{ flex: 1, fontSize: setSpText2(10), height: scaleSize(36), backgroundColor: "#f6f6f6", borderRadius: scaleSize(50), marginHorizontal: scaleSize(17), paddingLeft: scaleSize(45) }}
-                    underlineColorAndroid='transparent'
-                    placeholder="输入关键词或粘贴淘宝天猫宝贝标题找券"
-                    placeholderTextColor="#acacac"
-                    multiline={true}
-                />
-                <Image style={{ width: scaleSize(17), height: scaleSize(17) }} source={require('../../static/images/icon/classfy.png')} />
+                <View style={{ width: scaleSize(43) }}><Text style={{ fontSize: setSpText2(15), color: "#9B9B9B" }}>成都</Text></View>
+                <View style={[styles.logo, { marginLeft: scaleSize(10) }]}>
+                    <Image style={{ width: scaleSize(18), height: scaleSize(18), marginLeft: scaleSize(20) }} source={require('../../static/images/icon/serch.png')} />
+                    <TextInput style={[styles.inputStyle]}
+                        underlineColorAndroid='transparent'
+                        placeholderTextColor="#acacac"
+                        placeholder="搜你喜欢的" />
+                </View>
             </View>
         )
     }
@@ -39,11 +37,26 @@ const styles = StyleSheet.create({
     borderbottom: {
         flexDirection: "row",
         alignItems: 'center',
-        paddingVertical: scaleSize(9),
+        paddingVertical: scaleSize(8),
         paddingHorizontal: scaleSize(10),
         backgroundColor: "#fff",
-        borderBottomWidth:scaleSize(1),
-        borderBottomColor: "#e8e8e8",
+        position: 'absolute',
+        top: 0,
+        zIndex:20
+    },
+    logo: {
+        width: scaleSize(300),
+        height: scaleSize(28),
+        flexDirection: "row",
+        backgroundColor: "#F3F3F3",
+        borderRadius: scaleSize(15),
+        alignItems: "center",
+    },
+    inputStyle: {
+        flex: 1,
+        height: scaleSize(36),
+        fontSize: setSpText2(15),
+        paddingVertical: scaleSize(8),
     }
 })
 
