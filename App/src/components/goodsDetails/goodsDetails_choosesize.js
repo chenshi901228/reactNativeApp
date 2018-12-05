@@ -3,6 +3,9 @@ import { View, Text, TouchableWithoutFeedback } from 'react-native'
 
 import { RadioButtons } from 'react-native-radio-buttons'
 
+
+import { scaleSizese, setSpText2 } from '../../utils/ScreenUtil'
+
 export default class extends Component {
 
     // ...

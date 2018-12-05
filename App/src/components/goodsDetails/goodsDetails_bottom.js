@@ -1,7 +1,8 @@
 // 商品详情 标题
 
 import React, { Component } from 'react'
-import { View, StyleSheet, Image, TouchableOpacity } from 'react-native'
+import { View, StyleSheet, Image, TouchableOpacity, Text } from 'react-native'
+
 
 
 import { scaleSize, screenW } from '../../utils/ScreenUtil'
@@ -17,7 +18,7 @@ export default class extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <TouchableOpacity activeOpacity={1} onPress={() => { this._addshopping() }}>
+                <TouchableOpacity activeOpacity={1} onPress={this.props.handleModal}>
                     <Image style={styles.imgStyle} source={require("../../static/images/icon/addShopping.png")} />
                 </TouchableOpacity>
                 <TouchableOpacity activeOpacity={1} onPress={() => { this._nowbuy() }}>

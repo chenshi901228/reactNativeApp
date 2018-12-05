@@ -1,8 +1,10 @@
+
+// 商品详情
 import React, { Component } from 'react'
 import { View, ScrollView, Text, TouchableOpacity, Image, StyleSheet } from 'react-native'
+import Modal from 'react-native-modalbox'
 
-
-import { scaleSize, setSpText2, screenW } from '../utils/ScreenUtil'
+import { scaleSize, setSpText2, screenW, screenH } from '../utils/ScreenUtil'
 
 import Goods_head from '../components/goodsDetails/goodsDetails_head'
 import Banner_goods from '../components/goodsDetails/goodsDetails_banner'
@@ -11,11 +13,32 @@ import Goods_sale from '../components/goodsDetails/goodsDetails_sale'
 import Goods_store from '../components/goodsDetails/goodsDetails_store'
 import Goods_bottom from '../components/goodsDetails/goodsDetails_bottom'
 import Goods_show from '../components/goodsDetails/goodsDetails_show'
+import Goods_addshop from '../components/goodsDetails/goodsDetails_addshop'
 
 
 
 
 export default class extends Component {
+    constructor() {
+        super();
+        this.state = {
+            isOpen: false,
+            isDisabled: false,
+            swipeToClose: true,
+            sliderValue: 0.3
+        };
+    }
+
+    onClose() {
+        console.log('Modal just closed');
+    }
+
+    onOpen() {
+        console.log('Modal just opened');
+    }
+    handleModal() {
+        this.refs.modal.open()
+    }
     render() {
         const goods = this.props.navigation.getParam("goodsDetails")
         return (
@@ -30,7 +53,16 @@ export default class extends Component {
                     <Goods_store />
                     <Goods_show />
                 </ScrollView>
-                <Goods_bottom />
+                <Goods_bottom handleModal={this.handleModal.bind(this)} />
+                <Modal style={[styles.modal]}
+                    position={"bottom"}
+                    ref={"modal"}
+                    backdropPressToClose={false}
+                    backButtonClose={true}
+                    swipeArea={scaleSize(20)}>
+                    <Goods_addshop />
+                </Modal>
+
             </View>
         )
     }
@@ -39,5 +71,10 @@ export default class extends Component {
 const styles = StyleSheet.create({
     container: {
         backgroundColor: "#F3F3F3"
+    },
+    modal: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: screenH / 2
     }
 })

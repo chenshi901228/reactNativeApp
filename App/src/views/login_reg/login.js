@@ -1,94 +1,60 @@
 
 
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
 
-import { View, Text, Image, StyleSheet, TouchableOpacity, ImageBackground, Alert, Modal } from 'react-native'
+import { View, Text, Image, StyleSheet, TouchableOpacity, ImageBackground, TextInput, ScrollView } from 'react-native'
 
 
 import { scaleSize, setSpText2, screenH, screenW } from '../../utils/ScreenUtil'
+import { fetchRequest } from '../../utils/HttpUtil'
 
 
 
-class Hello extends Component {
-    state = {
-        modalVisible: false
-    }
-    componentDidMount() {
-        // this.props.dispatch(login())
-    }
-    toIndex() {
-        this.props.navigation.navigate('Index', { name: "chenshi" })
-    }
-    merchant_login() {
-        this.props.navigation.navigate('Merchant_login')
+class Phone_login extends Component {
+
+    login() {
+        this.props.navigation.navigate('Index')
     }
     render() {
         return (
             <ImageBackground style={styles.bgimg}
                 source={{ uri: "https://alipic.lanhuapp.com/bb704d8d79ba49875a74f68b85a6f77d" }}>
-                <Modal
-                    animationType="fade"
-                    transparent={true}
-                    // presentationStyle="overFullScreen"
-                    visible={this.state.modalVisible}
-                    onRequestClose={() => {
-                        this.setState({
-                            modalVisible: false
-                        })
-                    }}>
-                    <TouchableOpacity activeOpacity={1} style={{ flex: 1 }} onPress={() => { this.setState({ modalVisible: false }) }}>
-                        <View style={{ flex: 1, justifyContent: "center", backgroundColor: "rgba(0, 0, 0, 0.5)", padding: 50 }}>
-                            <View style={{ backgroundColor: "#fff" }}>
-                                <Text>111111111111</Text>
-                                <Text>111111111111</Text>
-                                <Text>111111111111</Text>
-                                <Text>111111111111</Text>
-                                <Text>111111111111</Text>
-                            </View>
-                        </View>
-                    </TouchableOpacity>
-                </Modal>
-                <View style={{ paddingHorizontal: scaleSize(20), paddingTop: scaleSize(20) }}>
-                    <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between" }}>
-                        <TouchableOpacity onPress={() => {
-                            Alert.alert(
-                                '提示',
-                                '确定要离开牛动店铺吗？',
-                                [
-                                    { text: '取消', onPress: () => console.log('Cancel Pressed'), style: 'cancel' },
-                                    { text: '确定', onPress: () => console.log('OK Pressed') },
-                                ],
-                                { cancelable: false }
-                            )
-                        }}>
-                            <Image style={{ width: scaleSize(15), height: scaleSize(15) }} source={require('../../static/images/icon/closeBtn.png')} />
+                <ScrollView style={styles.container}>
+                    <View style={styles.logo}>
+                        <Image style={{ width: scaleSize(15), height: scaleSize(28), marginLeft: scaleSize(21) }} source={require("../../static/images/icon/phone_icon.png")} />
+                        <TextInput style={{ flex: 1, height: scaleSize(36), textAlign: "center", fontSize: setSpText2(14), paddingVertical: scaleSize(8) }}
+                            underlineColorAndroid='transparent'
+                            placeholderTextColor="#FFF"
+                            maxLength={20}
+                            placeholder="输入账号" />
+                    </View>
+                    <View style={styles.logo}>
+                        <Image style={{ width: scaleSize(15), height: scaleSize(20), marginLeft: scaleSize(21) }} source={require("../../static/images/icon/pas_icon.png")} />
+                        <TextInput style={{ flex: 1, height: scaleSize(36), textAlign: "center", fontSize: setSpText2(14), paddingVertical: scaleSize(8) }}
+                            underlineColorAndroid='transparent'
+                            placeholderTextColor="#FFF"
+                            maxLength={32}
+                            secureTextEntry={true}
+                            placeholder="输入密码" />
+                    </View>
+                    <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
+                        <TouchableOpacity activeOpacity={0.5} onPress={() => { this.props.navigation.navigate("forgetpass") }}>
+                            <Text style={{ fontSize: setSpText2(12), color: "#FFF" }}>忘记密码</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity onPress={() => { this.merchant_login() }}>
-                            <Text style={{ fontSize: setSpText2(14), color: "#fff" }}>商家登录</Text>
+                        <TouchableOpacity activeOpacity={0.5} onPress={() => { this.props.navigation.navigate("verfymessage") }}>
+                            <Text style={{ fontSize: setSpText2(12), color: "#FFF" }}>快速注册</Text>
                         </TouchableOpacity>
                     </View>
-
-                    <TouchableOpacity style={{ marginTop: scaleSize(245) }} activeOpacity={0.8} onPress={() => { this.props.navigation.navigate("Reg") }}>
+                    <TouchableOpacity
+                        style={{ marginTop: scaleSize(104) }}
+                        onPress={() => { this.login() }}
+                        activeOpacity={0.8}
+                    >
                         <View style={styles.loginBtn}>
-                            <Text style={{ color: "#fff", fontSize: setSpText2(18) }}>注册</Text>
+                            <Text style={{ color: "#FFF", fontSize: setSpText2(14) }}>立即登录</Text>
                         </View>
                     </TouchableOpacity>
-                    <View style={{ flexDirection: "row", justifyContent: "space-between", marginTop: scaleSize(17) }}>
-                        <TouchableOpacity activeOpacity={0.8} onPress={() => { this.props.navigation.navigate("Phone_login") }}>
-                            <View style={styles.logo}>
-                                <Image style={{ width: scaleSize(32), height: scaleSize(32), marginLeft: scaleSize(18), marginRight: scaleSize(17) }} source={require("../../static/images/icon/wxlogo.png")} />
-                                <Text style={{ color: "#fff", fontSize: setSpText2(14) }}>手机登录</Text>
-                            </View>
-                        </TouchableOpacity>
-                        <TouchableOpacity activeOpacity={0.8} onPress={() => { this.setState({ modalVisible: true }) }}>
-                            <View style={styles.logo}>
-                                <Image style={{ width: scaleSize(32), height: scaleSize(32), marginLeft: scaleSize(18), marginRight: scaleSize(17) }} source={require("../../static/images/icon/phonelogo.png")} />
-                                <Text style={{ color: "#fff", fontSize: setSpText2(14) }}>微信登录</Text>
-                            </View>
-                        </TouchableOpacity>
-                    </View>
-                </View>
+                </ScrollView>
             </ImageBackground>
         )
     }
@@ -99,22 +65,28 @@ const styles = StyleSheet.create({
         width: screenW,
         height: screenH,
     },
+    container: {
+        paddingHorizontal: scaleSize(20),
+        paddingTop: scaleSize(143)
+    },
     loginBtn: {
-        borderRadius: scaleSize(22),
-        backgroundColor: "#E75F5B",
-        paddingVertical: scaleSize(6),
-        alignItems: "center"
+        height: scaleSize(44),
+        backgroundColor: "rgba(0,0,0,0)",
+        alignItems: "center",
+        justifyContent: "center",
+        borderWidth: scaleSize(1),
+        borderColor: "#FFF",
     },
     logo: {
-        width: scaleSize(155),
-        height: scaleSize(36),
+        width: scaleSize(335),
+        height: scaleSize(44),
         flexDirection: "row",
-        backgroundColor: "#4A4A4A",
-        borderRadius: scaleSize(20),
+        backgroundColor: "rgba(0,0,0,0)",
         alignItems: "center",
+        borderWidth: scaleSize(1),
+        borderColor: "#FFF",
+        marginBottom: scaleSize(10)
     }
 })
 
-export default connect(({ helloReducer }) => {
-    return { helloReducer }
-})(Hello)
+export default Phone_login
