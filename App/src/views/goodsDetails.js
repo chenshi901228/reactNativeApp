@@ -19,24 +19,7 @@ import Goods_addshop from '../components/goodsDetails/goodsDetails_addshop'
 
 
 export default class extends Component {
-    constructor() {
-        super();
-        this.state = {
-            isOpen: false,
-            isDisabled: false,
-            swipeToClose: true,
-            sliderValue: 0.3
-        };
-    }
-
-    onClose() {
-        console.log('Modal just closed');
-    }
-
-    onOpen() {
-        console.log('Modal just opened');
-    }
-    handleModal() {
+    handleAddshop() {
         this.refs.modal.open()
     }
     render() {
@@ -50,10 +33,10 @@ export default class extends Component {
                     <Banner_goods />
                     <Goods_title {...goods} />
                     <Goods_sale />
-                    <Goods_store />
+                    <Goods_store navigation={this.props.navigation} />
                     <Goods_show />
                 </ScrollView>
-                <Goods_bottom handleModal={this.handleModal.bind(this)} />
+                <Goods_bottom handleAddshop={this.handleAddshop.bind(this)} navigation={this.props.navigation} />
                 <Modal style={[styles.modal]}
                     position={"bottom"}
                     ref={"modal"}
@@ -62,7 +45,6 @@ export default class extends Component {
                     swipeArea={scaleSize(20)}>
                     <Goods_addshop />
                 </Modal>
-
             </View>
         )
     }

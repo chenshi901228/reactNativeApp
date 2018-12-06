@@ -1,4 +1,4 @@
-// 商品详情 标题
+// 商品详情 图片展示
 
 import React, { Component } from 'react'
 import { View, StyleSheet, Image, TouchableOpacity } from 'react-native'

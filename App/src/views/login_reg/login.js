@@ -21,16 +21,16 @@ class Phone_login extends Component {
                 source={{ uri: "https://alipic.lanhuapp.com/bb704d8d79ba49875a74f68b85a6f77d" }}>
                 <ScrollView style={styles.container}>
                     <View style={styles.logo}>
-                        <Image style={{ width: scaleSize(15), height: scaleSize(28), marginLeft: scaleSize(21) }} source={require("../../static/images/icon/phone_icon.png")} />
-                        <TextInput style={{ flex: 1, height: scaleSize(36), textAlign: "center", fontSize: setSpText2(14), paddingVertical: scaleSize(8) }}
+                        <Image style={[styles.iconStyle, { height: scaleSize(28) }]} source={require("../../static/images/icon/phone_icon.png")} />
+                        <TextInput style={styles.inputStyle}
                             underlineColorAndroid='transparent'
                             placeholderTextColor="#FFF"
                             maxLength={20}
                             placeholder="输入账号" />
                     </View>
                     <View style={styles.logo}>
-                        <Image style={{ width: scaleSize(15), height: scaleSize(20), marginLeft: scaleSize(21) }} source={require("../../static/images/icon/pas_icon.png")} />
-                        <TextInput style={{ flex: 1, height: scaleSize(36), textAlign: "center", fontSize: setSpText2(14), paddingVertical: scaleSize(8) }}
+                        <Image style={[styles.iconStyle, { height: scaleSize(20) }]} source={require("../../static/images/icon/pas_icon.png")} />
+                        <TextInput style={styles.inputStyle}
                             underlineColorAndroid='transparent'
                             placeholderTextColor="#FFF"
                             maxLength={32}
@@ -38,10 +38,10 @@ class Phone_login extends Component {
                             placeholder="输入密码" />
                     </View>
                     <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
-                        <TouchableOpacity activeOpacity={0.5} onPress={() => { this.props.navigation.navigate("forgetpass") }}>
+                        <TouchableOpacity activeOpacity={0.5} onPress={() => { this.props.navigation.navigate("Forgetpass") }}>
                             <Text style={{ fontSize: setSpText2(12), color: "#FFF" }}>忘记密码</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity activeOpacity={0.5} onPress={() => { this.props.navigation.navigate("verfymessage") }}>
+                        <TouchableOpacity activeOpacity={0.5} onPress={() => { this.props.navigation.navigate("Reg") }}>
                             <Text style={{ fontSize: setSpText2(12), color: "#FFF" }}>快速注册</Text>
                         </TouchableOpacity>
                     </View>
@@ -67,7 +67,8 @@ const styles = StyleSheet.create({
     },
     container: {
         paddingHorizontal: scaleSize(20),
-        paddingTop: scaleSize(143)
+        paddingTop: scaleSize(143),
+        backgroundColor: "rgba(0,0,0,0.7)"
     },
     loginBtn: {
         height: scaleSize(44),
@@ -86,6 +87,18 @@ const styles = StyleSheet.create({
         borderWidth: scaleSize(1),
         borderColor: "#FFF",
         marginBottom: scaleSize(10)
+    },
+    iconStyle: {
+        width: scaleSize(15),
+        position: "absolute",
+        left: scaleSize(10)
+    },
+    inputStyle: {
+        flex: 1,
+        height: scaleSize(36),
+        textAlign: "center",
+        fontSize: setSpText2(14),
+        paddingVertical: scaleSize(8)
     }
 })
 

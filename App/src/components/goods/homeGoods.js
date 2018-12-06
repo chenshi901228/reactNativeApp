@@ -17,15 +17,15 @@ function IsTitle(props) {
 
 export default class extends Component {
     _toGoodsDetails(goodsDetails) {
-        this.props.navigation.navigate("goodsDetails", { "goodsDetails": goodsDetails })
+        this.props.navigation.navigate("GoodsDetails", { "goodsDetails": goodsDetails })
     }
     render() {
         return (
             <View style={styles.container}>
                 <IsTitle title={this.props.title} />
                 <View style={styles.goodsStyle}>
-                    {this.props.goods.slice(0, 4).map(item => {
-                        return <TouchableOpacity key={item.id} onPress={() => { this._toGoodsDetails(item) }} activeOpacity={1}>
+                    {this.props.goods.slice(0, 4).map((item, index) => {
+                        return <TouchableOpacity key={index} onPress={() => { this._toGoodsDetails(item) }} activeOpacity={1}>
                             <Image style={styles.imgStyle} source={require('../../static/images/goods.png')} />
                         </TouchableOpacity>
                     })}

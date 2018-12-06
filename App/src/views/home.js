@@ -89,8 +89,8 @@ export default class extends Component {
                     <Swiper />
                     {/* 分类选项 */}
                     <View style={[styles.classifyStyle]}>
-                        {this.state.classifyTitle.map(item => {
-                            return <TouchableOpacity key={item} activeOpacity={1} onPress={() => { this._classify() }} style={styles.classifyItem}>
+                        {this.state.classifyTitle.map((item,index) => {
+                            return <TouchableOpacity key={index} activeOpacity={1} onPress={() => { this._classify() }} style={styles.classifyItem}>
                                 <View><Text style={styles.classFont}>{item}</Text></View>
                             </TouchableOpacity>
                         })}

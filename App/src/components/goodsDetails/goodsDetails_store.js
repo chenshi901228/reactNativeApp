@@ -10,6 +10,7 @@ import { scaleSize, setSpText2 } from '../../utils/ScreenUtil'
 export default class extends Component {
     _goBrand() {
         console.log("进入店铺")
+        this.props.navigation.navigate("Store")
     }
     render() {
         return (

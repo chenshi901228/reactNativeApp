@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text, TouchableWithoutFeedback } from 'react-native'
+import { View, Text, TouchableOpacity } from 'react-native'
 
 import { RadioButtons } from 'react-native-radio-buttons'
 
@@ -25,9 +25,9 @@ export default class extends Component {
             const style = selected ? { fontWeight: 'bold' } : {};
 
             return (
-                <TouchableWithoutFeedback onPress={onSelect} key={index}>
+                <TouchableOpacity onPress={onSelect} key={index}>
                     <Text style={style}>{option}</Text>
-                </TouchableWithoutFeedback>
+                </TouchableOpacity>
             );
         }
 

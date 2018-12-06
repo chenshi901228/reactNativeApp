@@ -16,8 +16,8 @@ export default class extends Component {
                 <ScrollView style={{ marginVertical: scaleSize(9) }}
                     showsHorizontalScrollIndicator={false}
                     horizontal>
-                    {this.props.goods.map(item => {
-                        return <GoodsMustBuyItem key={item.id} goods={item} navigation={this.props.navigation} />
+                    {this.props.goods.map((item, index) => {
+                        return <GoodsMustBuyItem key={index} goods={item} navigation={this.props.navigation} />
                     })}
                 </ScrollView>
             </View>

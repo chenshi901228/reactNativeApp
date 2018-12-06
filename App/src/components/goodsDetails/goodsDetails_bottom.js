@@ -1,4 +1,4 @@
-// 商品详情 标题
+// 商品详情 底部固定按钮
 
 import React, { Component } from 'react'
 import { View, StyleSheet, Image, TouchableOpacity, Text } from 'react-native'
@@ -18,10 +18,10 @@ export default class extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <TouchableOpacity activeOpacity={1} onPress={this.props.handleModal}>
+                <TouchableOpacity activeOpacity={1} onPress={this.props.handleAddshop}>
                     <Image style={styles.imgStyle} source={require("../../static/images/icon/addShopping.png")} />
                 </TouchableOpacity>
-                <TouchableOpacity activeOpacity={1} onPress={() => { this._nowbuy() }}>
+                <TouchableOpacity activeOpacity={1} onPress={()=>{this.props.navigation.navigate("BuyNow")}}>
                     <Image style={styles.imgStyle} source={require("../../static/images/icon/nowBuy.png")} />
                 </TouchableOpacity>
             </View>

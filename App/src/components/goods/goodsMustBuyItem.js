@@ -10,7 +10,7 @@ import Tag from './tag'
 
 export default class extends Component {
     _toGoodsDetails(goodsDetails) {
-        this.props.navigation.navigate("goodsDetails", { "goodsDetails": goodsDetails })
+        this.props.navigation.navigate("GoodsDetails", { "goodsDetails": goodsDetails })
     }
     render() {
         return (
