@@ -3,7 +3,7 @@
 import React, { Component } from 'react'
 import { Text, View, Image, TouchableOpacity, StyleSheet, ScrollView, TextInput, TouchableWithoutFeedback } from 'react-native'
 
-import HeaderTitle from '../components/headerTitle/headerTitle'
+import HeaderTitle from '../components/data/headerTitle'
 import Address from '../components/nowbuy/nowbuy_address'
 import Shop from '../components/nowbuy/nowbuy_shop'
 
@@ -13,6 +13,9 @@ import { scaleSize, setSpText2, screenW, screenH } from '../utils/ScreenUtil'
 export default class extends Component {
     state = {
         goodsNumber: "1"
+    }
+    back() {
+        this.props.navigation.goBack()
     }
     increment() {
         let newNum = parseInt(this.state.goodsNumber)
@@ -44,7 +47,7 @@ export default class extends Component {
     render() {
         return (
             <View style={{ flex: 1, backgroundColor: "#F3F3F3" }}>
-                <HeaderTitle title="确认订单" navigation={this.props.navigation} color="#FFF" />
+                <HeaderTitle title="确认订单" color="#FFF" back={this.back.bind(this)} />
                 <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
                     <Address navigation={this.props.navigation} />
                     <Shop num={this.state.goodsNumber} />

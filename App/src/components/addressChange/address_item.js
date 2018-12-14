@@ -34,7 +34,7 @@ export default class extends Component {
                 <TouchableOpacity
                     activeOpacity={1}
                     style={{ paddingVertical: scaleSize(30), paddingLeft: scaleSize(10) }}
-                    onPress={() => { console.log("xiugai") }}
+                    onPress={() => { _this.navigation.navigate("EditAddress") }}
                 >
                     <Image style={styles.imgStyle} source={require('../../static/images/icon/right_icon.png')} />
                 </TouchableOpacity>

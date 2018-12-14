@@ -6,22 +6,26 @@ import { scaleSize, setSpText2, screenW } from '../utils/ScreenUtil'
 
 
 
-import AddressTitle from '../components/addressChange/address_title'
+import HeaderTitle from '../components/data/headerTitle'
 import AddressItem from '../components/addressChange/address_item'
 
 
 
 export default class extends Component {
+    back() {
+        this.props.navigation.goBack()
+    }
+    newAddresss() {
+        this.props.navigation.navigate("NewAddress")
+    }
     render() {
         return (
             <View>
-                <AddressTitle title="我的收获地址" right="添加新地址" color="#FFF" navigation={this.props.navigation} />
+                <HeaderTitle title="我的收获地址" right="添加新地址" color="#FFF" back={this.back.bind(this)} handle={this.newAddresss.bind(this)} />
                 <ScrollView style={styles.container}>
-                    <AddressItem type="yes" />
-                    <AddressItem />
-                    <AddressItem />
-                    <AddressItem />
-                    <AddressItem />
+                    <AddressItem type="yes" navigation={this.props.navigation} />
+                    <AddressItem navigation={this.props.navigation} />
+                    <AddressItem navigation={this.props.navigation} />
                 </ScrollView>
             </View>
         )

@@ -8,6 +8,8 @@ import GoodsDetailsScreen from '../views/goodsDetails'
 import StoreScreen from '../views/store'
 import BuyNowScreen from '../views/nowbuy'
 import AddressChangeScreen from '../views/addressChange'
+import NewAddressScreen from '../views/newAddress'
+import EditAddressScreen from '../views/editAddress'
 
 
 
@@ -20,6 +22,8 @@ const Routes = createStackNavigator({
     Store: { screen: StoreScreen },
     BuyNow: { screen: BuyNowScreen },
     AddressChange: { screen: AddressChangeScreen },
+    NewAddress: { screen: NewAddressScreen },
+    EditAddress: { screen: EditAddressScreen },
 }, {
         navigationOptions: () => ({
             header: null

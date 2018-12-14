@@ -6,12 +6,15 @@ import { View, Text, Image, StyleSheet, TouchableOpacity, ScrollView, TextInput 
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 import { scaleSize, setSpText2, screenH, screenW } from '../../utils/ScreenUtil'
-import HeaderTitle from '../../components/headerTitle/headerTitle'
+import HeaderTitle from '../../components/data/headerTitle'
 
 class Forgetpass extends Component {
     state = {
         ishide: true,
         ishide1: true
+    }
+    back() {
+        this.props.navigation.goBack()
     }
     getVerificationCode() {
         console.log("1234")
@@ -32,7 +35,7 @@ class Forgetpass extends Component {
     render() {
         return (
             <View style={{ flex: 1, paddingTop: scaleSize(44), backgroundColor: "#FFF" }}>
-                <HeaderTitle title="设置密码" navigation={this.props.navigation} />
+                <HeaderTitle title="设置密码" back={this.back.bind(this)} />
                 <KeyboardAwareScrollView style={styles.bgimg}>
                     <View style={[styles.logo, { marginTop: scaleSize(49) }]}>
                         <Image style={[styles.imgStyle, { width: scaleSize(15), height: scaleSize(28) }]} source={require("../../static/images/icon/phone_icon_1.png")} />
