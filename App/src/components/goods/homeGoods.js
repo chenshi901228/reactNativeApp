@@ -1,4 +1,4 @@
-// 首页一般商品列表
+// 首页 一般商品列表
 
 
 import React, { Component } from 'react'

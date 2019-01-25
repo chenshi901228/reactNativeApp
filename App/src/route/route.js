@@ -1,15 +1,16 @@
 
 import { createStackNavigator } from 'react-navigation'
-import IndexScreen from '../views/index'
+import IndexScreen from '../views/tab/index'
 import LoginScreen from '../views/login_reg/login'
 import RegScreen from '../views/login_reg/reg'
 import ForgetpassScreen from '../views/login_reg/forgetpass'
-import GoodsDetailsScreen from '../views/goodsDetails'
-import StoreScreen from '../views/store'
-import BuyNowScreen from '../views/nowbuy'
-import AddressChangeScreen from '../views/addressChange'
-import NewAddressScreen from '../views/newAddress'
-import EditAddressScreen from '../views/editAddress'
+import ClassifyScreen from '../views/classify/classify'
+import GoodsDetailsScreen from '../views/goodsDetail/goodsDetails'
+import BuyNowScreen from '../views/goodsDetail/nowbuy'
+import StoreScreen from '../views/store/store'
+import AddressChangeScreen from '../views/deliveryAddress/addressChange'
+import NewAddressScreen from '../views/deliveryAddress/newAddress'
+import EditAddressScreen from '../views/deliveryAddress/editAddress'
 
 
 
@@ -18,6 +19,7 @@ const Routes = createStackNavigator({
     Index: { screen: IndexScreen },
     Reg: { screen: RegScreen },
     Forgetpass: { screen: ForgetpassScreen },
+    Classify: { screen: ClassifyScreen },
     GoodsDetails: { screen: GoodsDetailsScreen },
     Store: { screen: StoreScreen },
     BuyNow: { screen: BuyNowScreen },

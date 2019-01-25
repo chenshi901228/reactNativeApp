@@ -6,7 +6,7 @@ import { View, Text, Image, StyleSheet, TouchableOpacity, ScrollView, TextInput 
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 import { scaleSize, setSpText2, screenH, screenW } from '../../utils/ScreenUtil'
-import HeaderTitle from '../../components/data/headerTitle'
+import HeaderTitle from '../../components/common/headerTitle'
 
 class Forgetpass extends Component {
     state = {

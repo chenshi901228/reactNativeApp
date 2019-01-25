@@ -1,3 +1,6 @@
+
+// 轮播图组件
+
 import React, { Component } from 'react'
 import { View, Text, Image, StyleSheet, Dimensions } from 'react-native'
 
@@ -11,7 +14,7 @@ export default class extends Component {
     render() {
         return <View style={styles.wrapper}>
             <Swiper
-                activeDotColor="#888"
+                activeDotColor="#4a4a4a"
                 dotColor="#9B9B9B"
                 paginationStyle={{ bottom: scaleSize(10) }}
                 autoplay >

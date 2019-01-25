@@ -9,19 +9,13 @@ import { scaleSize, screenW } from '../../utils/ScreenUtil'
 
 
 export default class extends Component {
-    _addshopping() {
-        console.log("加入购物车")
-    }
-    _nowbuy() {
-        console.log("立即购买")
-    }
     render() {
         return (
             <View style={styles.container}>
                 <TouchableOpacity activeOpacity={1} onPress={this.props.handleAddshop}>
                     <Image style={styles.imgStyle} source={require("../../static/images/icon/addShopping.png")} />
                 </TouchableOpacity>
-                <TouchableOpacity activeOpacity={1} onPress={()=>{this.props.navigation.navigate("BuyNow")}}>
+                <TouchableOpacity activeOpacity={1} onPress={this.props.handleNowBuy}>
                     <Image style={styles.imgStyle} source={require("../../static/images/icon/nowBuy.png")} />
                 </TouchableOpacity>
             </View>

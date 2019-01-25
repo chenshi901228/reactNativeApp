@@ -11,15 +11,16 @@ import { scaleSize, setSpText2, screenW } from '../../utils/ScreenUtil'
 
 export default class extends Component {
     render() {
+        const _this = this.props
         return (
             <View style={[styles.shop]}>
                 <Image style={styles.imgStyle} source={require('../../static/images/goodsDetails.jpg')} />
                 <View style={{ width: scaleSize(263), height: scaleSize(82), justifyContent: "space-between" }}>
-                    <Text style={{ fontSize: setSpText2(12), color: "#333", lineHeight: scaleSize(17) }} numberOfLines={2}>祖玛珑苦橙香氛 圣诞限量 100ML Jo Malone Jo Malone London</Text>
+                    <Text style={{ fontSize: setSpText2(12), color: "#333", lineHeight: scaleSize(17) }} numberOfLines={2}>{_this.goods.title}</Text>
                     <Text style={{ fontSize: setSpText2(12), color: "#999" }}>商品参数：100ml</Text>
                     <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between", marginTop: scaleSize(10) }}>
-                        <Text style={{ fontSize: setSpText2(14), color: "#FF6666" }}>￥5511</Text>
-                        <Text style={{ fontSize: setSpText2(12), color: "#999" }}>×{this.props.num}</Text>
+                        <Text style={{ fontSize: setSpText2(14), color: "#FF6666" }}>￥{_this.goods.price}</Text>
+                        <Text style={{ fontSize: setSpText2(12), color: "#999" }}>×{_this.goodsNumber}</Text>
                     </View>
                 </View>
             </View>

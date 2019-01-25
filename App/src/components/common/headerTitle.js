@@ -7,6 +7,7 @@ import { TouchableOpacity, View, Image, Text, StyleSheet } from 'react-native'
 import { scaleSize, setSpText2, screenH, screenW } from '../../utils/ScreenUtil'
 
 
+
 function RightText(right, color, handle) {
     if (right) {
         return <TouchableOpacity
@@ -26,13 +27,13 @@ export default class extends Component {
         const _this = this.props
         return (
             <View style={[styles.container, _this.color ? { backgroundColor: _this.color } : {}]}>
-                <TouchableOpacity
+                {_this.back ? <TouchableOpacity
                     activeOpacity={1}
                     style={{ position: "absolute", left: 0, paddingHorizontal: scaleSize(10) }}
                     onPress={_this.back}
                 >
                     <Image style={{ width: scaleSize(8), height: scaleSize(15) }} source={require('../../static/images/icon/backBtn_1.png')} />
-                </TouchableOpacity>
+                </TouchableOpacity> : <Text></Text>}
                 <Text style={{ fontSize: scaleSize(16), color: "#333" }}>{_this.title}</Text>
                 {RightText(_this.right, _this.rightColor, _this.handle)}
             </View>

@@ -182,7 +182,7 @@ const styles = StyleSheet.create({
         width: scaleSize(34),
         height: scaleSize(21),
         padding: 0,
-        marginLeft: scaleSize(1),
+        marginHorizontal: scaleSize(1),
         textAlign: "center",
         backgroundColor: "#D8D8D8",
         fontSize: setSpText2(13)

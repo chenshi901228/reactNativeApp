@@ -1,5 +1,5 @@
 
-// 猜你喜欢商品
+// 店铺 商品
 
 import React, { Component } from 'react'
 import { View, Text, Image, StyleSheet, TouchableOpacity, ImageBackground } from 'react-native'

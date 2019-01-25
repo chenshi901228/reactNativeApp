@@ -3,16 +3,18 @@
 import React, { Component } from 'react'
 import { Text, View, Image, TouchableOpacity, StyleSheet, ScrollView, TextInput, TouchableWithoutFeedback } from 'react-native'
 
-import HeaderTitle from '../components/data/headerTitle'
-import Address from '../components/nowbuy/nowbuy_address'
-import Shop from '../components/nowbuy/nowbuy_shop'
+
+import HeaderTitle from '../../components/common/headerTitle'
+import Address from '../../components/nowbuy/nowbuy_address'
+import Shop from '../../components/nowbuy/nowbuy_shop'
 
 
-import { scaleSize, setSpText2, screenW, screenH } from '../utils/ScreenUtil'
+import { scaleSize, setSpText2, screenW, screenH } from '../../utils/ScreenUtil'
 
 export default class extends Component {
     state = {
-        goodsNumber: "1"
+        goodsNumber: "1",
+        goods: []
     }
     back() {
         this.props.navigation.goBack()
@@ -44,13 +46,17 @@ export default class extends Component {
             })
         }
     }
+    componentDidMount() {
+        const goods = this.props.navigation.getParam("goods")
+        this.setState({ goods })
+    }
     render() {
         return (
             <View style={{ flex: 1, backgroundColor: "#F3F3F3" }}>
                 <HeaderTitle title="确认订单" color="#FFF" back={this.back.bind(this)} />
-                <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
+                <ScrollView keyboardShouldPersistTaps="never" style={styles.container} showsVerticalScrollIndicator={false}>
                     <Address navigation={this.props.navigation} />
-                    <Shop num={this.state.goodsNumber} />
+                    <Shop {...this.state} />
                     <View style={[styles.item, styles.borderTop]}>
                         <Text style={styles.title}>购买数量</Text>
                         <View style={{ flexDirection: "row" }}>
@@ -70,12 +76,12 @@ export default class extends Component {
                     <View style={[styles.item1, styles.borderTop]}>
                         <Text style={{ fontSize: setSpText2(12), color: "#666", marginRight: scaleSize(10) }}>共1件商品</Text>
                         <Text style={{ fontSize: setSpText2(13), color: "#999" }}>小计：</Text>
-                        <Text style={{ fontSize: setSpText2(13), color: "#FF6666" }}>￥12554</Text>
+                        <Text style={{ fontSize: setSpText2(13), color: "#FF6666" }}>￥{parseInt(this.state.goods.price) * parseInt(this.state.goodsNumber)}</Text>
                     </View>
                 </ScrollView>
                 <View style={styles.bottom}>
                     <Text style={{ fontSize: setSpText2(13), color: "#999" }}>合计金额：</Text>
-                    <Text style={{ fontSize: setSpText2(13), color: "#FF6666" }}>￥12554</Text>
+                    <Text style={{ fontSize: setSpText2(13), color: "#FF6666" }}>￥{parseInt(this.state.goods.price) * parseInt(this.state.goodsNumber)}</Text>
                     <TouchableOpacity style={styles.subButton} activeOpacity={1} onPress={() => { console.log(this.state) }}>
                         <Text style={{ fontSize: setSpText2(14), color: "#FFF" }}>提交订单</Text>
                     </TouchableOpacity>
@@ -145,7 +151,7 @@ const styles = StyleSheet.create({
         width: scaleSize(34),
         height: scaleSize(21),
         padding: 0,
-        marginLeft: scaleSize(1),
+        marginHorizontal: scaleSize(1),
         textAlign: "center",
         backgroundColor: "#D8D8D8",
         fontSize: setSpText2(13)

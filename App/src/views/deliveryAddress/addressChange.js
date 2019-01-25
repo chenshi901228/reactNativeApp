@@ -1,13 +1,16 @@
+
+// 我的收货地址
+
 import React, { Component } from 'react'
 import { View, Text, ScrollView, StyleSheet } from 'react-native'
 
 
-import { scaleSize, setSpText2, screenW } from '../utils/ScreenUtil'
+import { scaleSize, setSpText2, screenW } from '../../utils/ScreenUtil'
 
 
 
-import HeaderTitle from '../components/data/headerTitle'
-import AddressItem from '../components/addressChange/address_item'
+import HeaderTitle from '../../components/common/headerTitle'
+import AddressItem from '../../components/deliveryAddress/address_item'
 
 
 

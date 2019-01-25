@@ -1,14 +1,15 @@
+
 // 门店
 
 import React, { Component } from 'react'
 import { View, Text, ScrollView, StyleSheet, FlatList } from 'react-native'
 
-import { scaleSize, screenW } from '../utils/ScreenUtil'
+import { scaleSize, screenW } from '../../utils/ScreenUtil'
 
 
-import StoreHead from '../components/store/store_head'
-import StoreBanner from '../components/store/store_banner'
-import StoreGoods from '../components/store/store_goods'
+import StoreHead from '../../components/store/store_head'
+import StoreBanner from '../../components/store/store_banner'
+import StoreGoods from '../../components/store/store_goods'
 
 
 

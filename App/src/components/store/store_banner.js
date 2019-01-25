@@ -1,3 +1,6 @@
+
+// 店铺 头部banner
+
 import React, { Component } from 'react'
 import {
     View,
