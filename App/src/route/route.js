@@ -11,6 +11,10 @@ import StoreScreen from '../views/store/store'
 import AddressChangeScreen from '../views/deliveryAddress/addressChange'
 import NewAddressScreen from '../views/deliveryAddress/newAddress'
 import EditAddressScreen from '../views/deliveryAddress/editAddress'
+import OrderScreen from '../views/order/order' //我的订单
+import DividendScreen from '../views/dividend/dividend' //分红中心
+import MyfansScreen from '../views/partner/myfans' //我的粉丝
+import LogisticsScreen from '../views/logistics/logistics' //查看物流
 
 
 
@@ -26,6 +30,10 @@ const Routes = createStackNavigator({
     AddressChange: { screen: AddressChangeScreen },
     NewAddress: { screen: NewAddressScreen },
     EditAddress: { screen: EditAddressScreen },
+    Order: { screen: OrderScreen },
+    Dividend: { screen: DividendScreen },
+    Myfans: { screen: MyfansScreen },
+    Logistics: { screen: LogisticsScreen }
 }, {
         navigationOptions: () => ({
             header: null

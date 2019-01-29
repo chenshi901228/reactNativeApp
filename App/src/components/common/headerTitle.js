@@ -26,7 +26,7 @@ export default class extends Component {
     render() {
         const _this = this.props
         return (
-            <View style={[styles.container, _this.color ? { backgroundColor: _this.color } : {}]}>
+            <View style={[styles.container, _this.color ? { backgroundColor: _this.color } : { backgroundColor: "#FFF" }]}>
                 {_this.back ? <TouchableOpacity
                     activeOpacity={1}
                     style={{ position: "absolute", left: 0, paddingHorizontal: scaleSize(10) }}

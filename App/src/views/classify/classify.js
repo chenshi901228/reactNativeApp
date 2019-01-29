@@ -6,8 +6,8 @@ import ScrollableTabView, { ScrollableTabBar } from 'react-native-scrollable-tab
 import { scaleSize, screenW, setSpText2 } from '../../utils/ScreenUtil'
 
 
-import StoreHead from '../../components/store/store_head'
-import StoreGoods from '../../components/store/store_goods'
+import Serch from '../../components/common/serch'
+import GoodsItem from '../../components/common/goodsItem'
 
 export default class extends Component {
     state = {
@@ -51,7 +51,7 @@ export default class extends Component {
     render() {
         return (
             <View style={{ flex: 1, width: screenW, backgroundColor: "#F1F1F1" }}>
-                <StoreHead navigation={this.props.navigation} />
+                <Serch navigation={this.props.navigation} />
                 <ScrollableTabView
                     tabBarUnderlineStyle={{ height: scaleSize(4), borderRadius: scaleSize(2), backgroundColor: "#FF6666" }}
                     tabBarBackgroundColor='#fff'
@@ -65,7 +65,7 @@ export default class extends Component {
                             data={this.state.goods}
                             ItemSeparatorComponent={() => { return <View style={{ height: scaleSize(7) }}></View> }}
                             renderItem={({ item }) => (
-                                <StoreGoods goods={item} navigation={this.props.navigation} />
+                                <GoodsItem goods={item} navigation={this.props.navigation} />
                             )}
                         />
                     </View>

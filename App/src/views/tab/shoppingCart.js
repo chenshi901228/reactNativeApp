@@ -26,7 +26,7 @@ export default class extends Component {
             title: "商品1",
             price: "390.00",
             imgUrl: "../../static/images/goods.png",
-            isactive: true
+            isactive: false
         }, {
             id: 3,
             title: "商品1",
@@ -89,6 +89,14 @@ export default class extends Component {
     handleActive(index) {
         this.state.goods[index].isactive = !this.state.goods[index].isactive
         this.setState(this.state)
+        let t = this.state.goods.every((e) => {
+            return e.isactive == true
+        })
+        if (t) {
+            this.setState({ selectAll: true })
+        } else {
+            this.setState({ selectAll: false })
+        }
     }
     bottomBtn() {
         if (this.state.bottomHandle == "删除") {
@@ -111,7 +119,7 @@ export default class extends Component {
         return (
             <View style={{ backgroundColor: "#F3F3F3", flex: 1 }}>
                 <HeaderTitle title='购物车' right={this.state.headerRight} rightColor="#9B9B9B" color="#fff" handle={() => { this.manage() }} />
-                <ScrollView style={{ marginTop: scaleSize(44), marginBottom: scaleSize(46) }}>
+                <ScrollView showsVerticalScrollIndicator={false} style={{ marginTop: scaleSize(44), marginBottom: scaleSize(46) }}>
                     {this.state.goods.map((item, i) => {
                         return <Item key={i} goods={item} handleActive={() => { this.handleActive(i) }} />
                     })}

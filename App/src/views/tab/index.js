@@ -23,7 +23,7 @@ class Index extends Component {
             <View style={styles.container}>
                 <TabNavigator
                     hidesTabTouch
-                    tabBarStyle={{ paddingBottom: scaleSize(2), backgroundColor: "#FFF", borderTopWidth: 0 ,height:scaleSize(50)}}
+                    tabBarStyle={{ paddingBottom: scaleSize(2), backgroundColor: "#FFF", borderTopWidth: 0, height: scaleSize(50) }}
                 >
                     <TabNavigator.Item
                         selected={this.state.selectedTab === '首页'}
@@ -43,7 +43,7 @@ class Index extends Component {
                         renderIcon={() => <Image style={styles.icon} source={require("../../static/images/icon/shopping_1.png")} />}
                         renderSelectedIcon={() => <Image style={styles.icon} source={require("../../static/images/icon/shopping.png")} />}
                         onPress={() => this.setState({ selectedTab: '购物车' })}>
-                        <ShoppingCart />
+                        <ShoppingCart navigation={this.props.navigation} />
                     </TabNavigator.Item>
                     <TabNavigator.Item
                         selected={this.state.selectedTab === '我的'}
@@ -53,7 +53,7 @@ class Index extends Component {
                         renderIcon={() => <Image style={styles.icon} source={require("../../static/images/icon/mine_1.png")} />}
                         renderSelectedIcon={() => <Image style={styles.icon} source={require("../../static/images/icon/mine.png")} />}
                         onPress={() => this.setState({ selectedTab: '我的' })}>
-                        <Mine />
+                        <Mine navigation={this.props.navigation} />
                     </TabNavigator.Item>
                 </TabNavigator>
             </View>

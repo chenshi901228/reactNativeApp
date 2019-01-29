@@ -7,9 +7,9 @@ import { View, Text, ScrollView, StyleSheet, FlatList } from 'react-native'
 import { scaleSize, screenW } from '../../utils/ScreenUtil'
 
 
-import StoreHead from '../../components/store/store_head'
+import Serch from '../../components/common/serch'
+import GoodsItem from '../../components/common/goodsItem'
 import StoreBanner from '../../components/store/store_banner'
-import StoreGoods from '../../components/store/store_goods'
 
 
 
@@ -56,7 +56,7 @@ export default class extends Component {
     render() {
         return (
             <View style={{ flex: 1, width: screenW, backgroundColor: "#F1F1F1" }}>
-                <StoreHead navigation={this.props.navigation} />
+                <Serch navigation={this.props.navigation} />
                 <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
                     <StoreBanner />
                     <View style={{ padding: scaleSize(7) }}>
@@ -65,7 +65,7 @@ export default class extends Component {
                             data={this.state.goods}
                             ItemSeparatorComponent={() => { return <View style={{ height: scaleSize(7) }}></View> }}
                             renderItem={({ item }) => (
-                                <StoreGoods goods={item} navigation={this.props.navigation} />
+                                <GoodsItem goods={item} navigation={this.props.navigation} />
                             )}
                         />
                     </View>
