@@ -31,7 +31,8 @@ export default class extends Component {
         partner: [
             {
                 text: "收益报表",
-                img: require('../../static/images/icon/rule.png')
+                img: require('../../static/images/icon/rule.png'),
+                route: "Earning"
             },
             {
                 text: "我的粉丝",
@@ -49,7 +50,7 @@ export default class extends Component {
     render() {
         return (
             <ScrollView showsVerticalScrollIndicator={false}>
-                <UserInfo />
+                <UserInfo set={() => { this.props.navigation.navigate("Setting") }} />
                 <Account />
                 <Title navigation={this.props.navigation} title="我的订单" right={true} rightText="查看全部" route="Order" />
                 <Item navigation={this.props.navigation} items={this.state.order} route="Order" />

@@ -9,7 +9,7 @@ export default class extends Component {
     render() {
         return (
             <View style={[styles.container]}>
-                <TouchableOpacity style={styles.setBtn} onPress={() => { console.log("设置") }}>
+                <TouchableOpacity style={styles.setBtn} onPress={() => { this.props.set() }}>
                     <Image style={{ width: scaleSize(16), height: scaleSize(16) }} source={require('../../static/images/icon/setting.png')} />
                 </TouchableOpacity>
                 <View style={styles.info}>

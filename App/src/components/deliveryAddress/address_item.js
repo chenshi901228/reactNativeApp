@@ -23,7 +23,10 @@ export default class extends Component {
     render() {
         const _this = this.props
         return (
-            <View style={[styles.container]}>
+            <TouchableOpacity
+                activeOpacity={1}
+                onPress={() => { _this.navigation.navigate("EditAddress") }}
+                style={[styles.container]}>
                 <View style={{ width: scaleSize(300) }}>
                     <View style={{ flexDirection: "row", alignItems: "center" }}>
                         <Text style={{ fontSize: setSpText2(14), color: "#333" }}>某某某 180****7654</Text>
@@ -31,14 +34,10 @@ export default class extends Component {
                     </View>
                     <Text style={{ marginTop: scaleSize(7), fontSize: setSpText2(13), color: "#666" }} numberOfLines={1}>四川省成都市锦江区具体街道门牌号几栋几单元四川省成都市锦江区具体街道门牌号几栋几单元</Text>
                 </View>
-                <TouchableOpacity
-                    activeOpacity={1}
-                    style={{ paddingVertical: scaleSize(30), paddingLeft: scaleSize(10) }}
-                    onPress={() => { _this.navigation.navigate("EditAddress") }}
-                >
+                <View style={{ paddingVertical: scaleSize(30), paddingLeft: scaleSize(10) }}>
                     <Image style={styles.imgStyle} source={require('../../static/images/icon/right_icon.png')} />
-                </TouchableOpacity>
-            </View>
+                </View>
+            </TouchableOpacity>
         )
     }
 }

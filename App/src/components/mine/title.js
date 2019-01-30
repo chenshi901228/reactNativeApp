@@ -9,13 +9,13 @@ export default class extends Component {
     render() {
         const _this = this.props
         return (
-            <View style={styles.container}>
+            <TouchableOpacity activeOpacity={0.9} onPress={() => { _this.route ? _this.navigation.navigate(_this.route) : null }} style={styles.container}>
                 <Text style={styles.title}>{_this.title}</Text>
-                {_this.right ? <TouchableOpacity onPress={() => { _this.navigation.navigate(_this.route) }} style={{ flexDirection: "row", alignItems: "center", height: scaleSize(44) }}>
+                {_this.right ? <View style={{ flexDirection: "row", alignItems: "center", height: scaleSize(44) }}>
                     {_this.rightText ? <Text style={styles.text}>{_this.rightText}</Text> : <Text></Text>}
                     <Image style={styles.img} source={require('../../static/images/icon/choice.png')} />
-                </TouchableOpacity> : <Text></Text>}
-            </View>
+                </View> : <Text></Text>}
+            </TouchableOpacity>
         )
     }
 }
