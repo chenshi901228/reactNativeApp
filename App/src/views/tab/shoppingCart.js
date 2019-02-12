@@ -117,9 +117,9 @@ export default class extends Component {
     }
     render() {
         return (
-            <View style={{ backgroundColor: "#F3F3F3", flex: 1 }}>
+            <View style={{ backgroundColor: "#F3F3F3", flex: 1, paddingBottom: scaleSize(46) }}>
                 <HeaderTitle title='购物车' right={this.state.headerRight} rightColor="#9B9B9B" color="#fff" handle={() => { this.manage() }} />
-                <ScrollView showsVerticalScrollIndicator={false} style={{ marginTop: scaleSize(44), marginBottom: scaleSize(46) }}>
+                <ScrollView showsVerticalScrollIndicator={false} style={{ marginTop: scaleSize(44) }}>
                     {this.state.goods.map((item, i) => {
                         return <Item key={i} goods={item} handleActive={() => { this.handleActive(i) }} />
                     })}

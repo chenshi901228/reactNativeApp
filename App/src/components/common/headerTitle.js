@@ -29,7 +29,7 @@ export default class extends Component {
             <View style={[styles.container, _this.color ? { backgroundColor: _this.color } : { backgroundColor: "#FFF" }]}>
                 {_this.back ? <TouchableOpacity
                     activeOpacity={1}
-                    style={{ position: "absolute", left: 0, paddingHorizontal: scaleSize(10) }}
+                    style={{ position: "absolute", left: 0, height: scaleSize(44), justifyContent: "center", paddingLeft: scaleSize(10), paddingRight: scaleSize(20) }}
                     onPress={_this.back}
                 >
                     <Image style={{ width: scaleSize(8), height: scaleSize(15) }} source={require('../../static/images/icon/backBtn_1.png')} />

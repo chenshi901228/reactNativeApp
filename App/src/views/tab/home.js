@@ -156,8 +156,9 @@ const styles = StyleSheet.create({
     },
     classFont: {
         fontSize: setSpText2(14),
-        width: scaleSize(28),
-        textAlign: "center"
+        width: scaleSize(30),
+        textAlign: "center",
+        lineHeight: scaleSize(20)
     },
     dividend: {
         height: scaleSize(100),

@@ -17,7 +17,7 @@ export default class extends Component {
                         <Image style={styles.choseBtn} source={require("../../static/images/icon/noactive.png")} />
                     }
                 </TouchableOpacity>
-                <Image style={styles.goodsImg} source={require('../../static/images/goods.jpg')} />
+                <Image style={styles.goodsImg} source={require('../../static/images/goods1.jpg')} />
                 <View style={{ height: scaleSize(90), justifyContent: "space-between" }}>
                     <View>
                         <Text

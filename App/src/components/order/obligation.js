@@ -83,7 +83,7 @@ export default class extends Component {
     }
     render() {
         return (
-            <View style={{ flex: 1 }}>
+            <View style={{ flex: 1, paddingBottom: scaleSize(46) }}>
                 <ScrollView showsVerticalScrollIndicator={false}>
                     {
                         this.state.goods.map((item, i) => {
@@ -153,7 +153,6 @@ const styles = StyleSheet.create({
         color: "#333"
     },
     goBtn: {
-        width: scaleSize(72),
         marginTop: scaleSize(10),
         borderWidth: scaleSize(1),
         borderColor: "#CDCDCD",

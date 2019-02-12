@@ -98,7 +98,6 @@ const styles = StyleSheet.create({
         color: "#333"
     },
     goBtn: {
-        width: scaleSize(72),
         marginTop: scaleSize(10),
         borderWidth: scaleSize(1),
         borderColor: "#CDCDCD",
