@@ -51,7 +51,9 @@ export default class extends Component {
             price: "390.00",
             imgUrl: "../../static/images/goods.png"
         }],
-        classifyTitle: ["白金尊享", "焕颜洗护", "全球味道", "妈咪宝贝", "轻奢生活", "精致厨房", "精品惠选", "口袋记忆"]
+        classifyTitle: ["白金尊享", "焕颜洗护", "全球味道", "妈咪宝贝", "轻奢生活", "精致厨房", "精品惠选", "口袋记忆"],
+        countDown: "2019/2/13 12:00:00",
+        leftTime: "00:00:00"
     }
 
     _onRefresh() {
@@ -64,6 +66,38 @@ export default class extends Component {
     }
     classify() {
         this.props.navigation.navigate("Classify")
+    }
+    countDown() {
+        clearInterval(this.timer)
+        let nowtime = + new Date()
+        let endtime = + new Date(this.state.countDown)
+        let leftTime = endtime - nowtime
+        if (leftTime >= 0) {
+            this.timer = setInterval(() => {
+                let d, h, m, s, str
+                d = Math.floor(leftTime / 1000 / 60 / 60 / 24)
+                h = Math.floor(leftTime / 1000 / 60 / 60 % 24)
+                m = Math.floor(leftTime / 1000 / 60 % 60)
+                s = Math.floor(leftTime / 1000 % 60)
+                str = (h < 10 ? "0" + h : h) + ":" + (m < 10 ? "0" + m : m) + ":" + (s < 10 ? "0" + s : s)
+                this.setState({
+                    leftTime: str
+                }, () => {
+                    this.countDown()
+                })
+            }, 1000)
+        } else {
+            this.setState({
+                leftTime: "00:00:00"
+            })
+            clearInterval(this.timer)
+        }
+    }
+    componentDidMount() {
+        this.countDown()
+    }
+    componentWillUnmount() {
+        clearInterval(this.timer)
     }
     render() {
         return (
@@ -100,7 +134,7 @@ export default class extends Component {
                             <View style={styles.dividend}>
                                 <View style={{ width: scaleSize(201), height: scaleSize(90), marginTop: scaleSize(10), alignItems: "center" }}>
                                     <Text style={{ fontSize: setSpText2(12), color: "#9B9B9B" }}>分红倒计时</Text>
-                                    <Text style={{ fontSize: setSpText2(36), color: "#FF4D00" }}>02：58</Text>
+                                    <Text style={{ fontSize: setSpText2(36), color: "#FF4D00" }}>{this.state.leftTime}</Text>
                                     <Text style={{ fontSize: setSpText2(14), color: "#FF6400" }}>今日交易：10000.00元</Text>
                                 </View>
                             </View>

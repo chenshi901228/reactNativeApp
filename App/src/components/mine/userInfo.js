@@ -42,8 +42,10 @@ const styles = StyleSheet.create({
     },
     setBtn: {
         position: "absolute",
-        right: scaleSize(10),
-        top: scaleSize(21)
+        right: scaleSize(0),
+        top: scaleSize(11),
+        paddingHorizontal: scaleSize(10),
+        paddingVertical: scaleSize(10)
     },
     info: {
         marginTop: scaleSize(24)

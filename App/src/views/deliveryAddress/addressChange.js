@@ -26,7 +26,7 @@ export default class extends Component {
             <View>
                 <HeaderTitle title="我的收获地址" right="添加新地址" color="#FFF" back={this.back.bind(this)} handle={this.newAddresss.bind(this)} />
                 <ScrollView style={styles.container}>
-                    <AddressItem type="yes" navigation={this.props.navigation} />
+                    <AddressItem type="default" navigation={this.props.navigation} />
                     <AddressItem navigation={this.props.navigation} />
                     <AddressItem navigation={this.props.navigation} />
                 </ScrollView>

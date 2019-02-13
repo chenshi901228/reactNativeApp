@@ -146,14 +146,14 @@ const styles = StyleSheet.create({
         textAlign: "center",
         fontSize: setSpText2(14),
         paddingVertical: scaleSize(8),
-        color:"#FFF"
+        color: "#FFF"
     },
     position_btn: {
         height: scaleSize(44),
         position: "absolute",
         right: 0,
         justifyContent: "center",
-        paddingRight: scaleSize(10)
+        paddingHorizontal: scaleSize(10)
     },
     imgStyle: {
         position: "absolute",

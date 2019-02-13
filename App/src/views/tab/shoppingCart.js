@@ -111,7 +111,8 @@ export default class extends Component {
             return item.isactive == false
         })
         this.setState({
-            goods: newGoods
+            goods: newGoods,
+            selectAll: false
         })
         this.refs.modal.close()
     }

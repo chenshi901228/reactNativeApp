@@ -2,8 +2,10 @@
 
 import React, { Component } from 'react'
 
-import { View, Text, Image, StyleSheet, TouchableOpacity, ScrollView, TextInput } from 'react-native'
+import { View, Text, Image, StyleSheet, TouchableOpacity, TextInput, ToastAndroid } from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+
+import ImagePicker from 'react-native-image-picker';
 
 import { scaleSize, setSpText2, screenH, screenW } from '../../utils/ScreenUtil'
 import HeaderTitle from '../../components/common/headerTitle'
@@ -30,7 +32,54 @@ class Forgetpass extends Component {
         })
     }
     reg() {
-        console.log("修改成功")
+
+        // ToastAndroid.showWithGravity("修改成功", ToastAndroid.SHORT, ToastAndroid.CENTER)
+        const options = {
+            title: '选择图片',
+            cancelButtonTitle: '取消',
+            takePhotoButtonTitle: '拍照',
+            chooseFromLibraryButtonTitle: '选择照片',
+            customButtons: [
+                { name: 'fb', title: 'Choose Photo from Facebook' },
+            ],
+            cameraType: 'back',
+            mediaType: 'photo',
+            videoQuality: 'high',
+            durationLimit: 10,
+            maxWidth: 300,
+            maxHeight: 300,
+            quality: 0.8,
+            angle: 0,
+            allowsEditing: false,
+            noData: false,
+            storageOptions: {
+                skipBackup: true
+            }
+        };
+
+        ImagePicker.showImagePicker(options, (response) => {
+            console.log('Response = ', response);
+
+            if (response.didCancel) {
+                console.log('User cancelled photo picker');
+            }
+            else if (response.error) {
+                console.log('ImagePicker Error: ', response.error);
+            }
+            else if (response.customButton) {
+                console.log('User tapped custom button: ', response.customButton);
+            }
+            else {
+                let source = { uri: response.uri };
+
+                // You can also display the image using data:
+                // let source = { uri: 'data:image/jpeg;base64,' + response.data };
+
+                this.setState({
+                    avatarSource: source
+                });
+            }
+        });
     }
     render() {
         return (
@@ -73,7 +122,7 @@ class Forgetpass extends Component {
                             secureTextEntry={this.state.ishide}
                             placeholder="设置新密码" />
                         <TouchableOpacity
-                            activeOpacity={1}
+                            activeOpacity={0.8}
                             style={[styles.position_btn]}
                             onPress={() => { this.changeShow() }}
                         >
@@ -89,7 +138,7 @@ class Forgetpass extends Component {
                             secureTextEntry={this.state.ishide1}
                             placeholder="确认新密码" />
                         <TouchableOpacity
-                            activeOpacity={1}
+                            activeOpacity={0.8}
                             style={[styles.position_btn]}
                             onPress={() => { this.changeShow1() }}
                         >
@@ -146,7 +195,7 @@ const styles = StyleSheet.create({
         position: "absolute",
         right: 0,
         justifyContent: "center",
-        paddingRight: scaleSize(10)
+        paddingHorizontal: scaleSize(10)
     },
     imgStyle: {
         position: "absolute",

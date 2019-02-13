@@ -65,6 +65,7 @@ const styles = StyleSheet.create({
         height: scaleSize(18),
         backgroundColor: "#FFE0AC",
         alignItems: "center",
-        marginLeft: scaleSize(4)
+        marginLeft: scaleSize(4),
+        justifyContent:"center"
     }
 })
