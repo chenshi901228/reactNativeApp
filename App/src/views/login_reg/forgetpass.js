@@ -5,7 +5,7 @@ import React, { Component } from 'react'
 import { View, Text, Image, StyleSheet, TouchableOpacity, TextInput, ToastAndroid } from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
-import ImagePicker from 'react-native-image-picker';
+// import ImagePicker from 'react-native-image-picker';
 
 import { scaleSize, setSpText2, screenH, screenW } from '../../utils/ScreenUtil'
 import HeaderTitle from '../../components/common/headerTitle'
@@ -33,53 +33,53 @@ class Forgetpass extends Component {
     }
     reg() {
 
-        // ToastAndroid.showWithGravity("修改成功", ToastAndroid.SHORT, ToastAndroid.CENTER)
-        const options = {
-            title: '选择图片',
-            cancelButtonTitle: '取消',
-            takePhotoButtonTitle: '拍照',
-            chooseFromLibraryButtonTitle: '选择照片',
-            customButtons: [
-                { name: 'fb', title: 'Choose Photo from Facebook' },
-            ],
-            cameraType: 'back',
-            mediaType: 'photo',
-            videoQuality: 'high',
-            durationLimit: 10,
-            maxWidth: 300,
-            maxHeight: 300,
-            quality: 0.8,
-            angle: 0,
-            allowsEditing: false,
-            noData: false,
-            storageOptions: {
-                skipBackup: true
-            }
-        };
+        ToastAndroid.showWithGravity("修改成功", ToastAndroid.SHORT, ToastAndroid.CENTER)
+        // const options = {
+        //     title: '选择图片',
+        //     cancelButtonTitle: '取消',
+        //     takePhotoButtonTitle: '拍照',
+        //     chooseFromLibraryButtonTitle: '选择照片',
+        //     customButtons: [
+        //         { name: 'fb', title: 'Choose Photo from Facebook' },
+        //     ],
+        //     cameraType: 'back',
+        //     mediaType: 'photo',
+        //     videoQuality: 'high',
+        //     durationLimit: 10,
+        //     maxWidth: 300,
+        //     maxHeight: 300,
+        //     quality: 0.8,
+        //     angle: 0,
+        //     allowsEditing: false,
+        //     noData: false,
+        //     storageOptions: {
+        //         skipBackup: true
+        //     }
+        // };
 
-        ImagePicker.showImagePicker(options, (response) => {
-            console.log('Response = ', response);
+        // ImagePicker.showImagePicker(options, (response) => {
+        //     console.log('Response = ', response);
 
-            if (response.didCancel) {
-                console.log('User cancelled photo picker');
-            }
-            else if (response.error) {
-                console.log('ImagePicker Error: ', response.error);
-            }
-            else if (response.customButton) {
-                console.log('User tapped custom button: ', response.customButton);
-            }
-            else {
-                let source = { uri: response.uri };
+        //     if (response.didCancel) {
+        //         console.log('User cancelled photo picker');
+        //     }
+        //     else if (response.error) {
+        //         console.log('ImagePicker Error: ', response.error);
+        //     }
+        //     else if (response.customButton) {
+        //         console.log('User tapped custom button: ', response.customButton);
+        //     }
+        //     else {
+        //         let source = { uri: response.uri };
 
-                // You can also display the image using data:
-                // let source = { uri: 'data:image/jpeg;base64,' + response.data };
+        //         // You can also display the image using data:
+        //         // let source = { uri: 'data:image/jpeg;base64,' + response.data };
 
-                this.setState({
-                    avatarSource: source
-                });
-            }
-        });
+        //         this.setState({
+        //             avatarSource: source
+        //         });
+        //     }
+        // });
     }
     render() {
         return (
